@@ -12,41 +12,72 @@
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="stylesheet" href="">
+        <script src="./main.js"></script>
     </head>
     <body>
         <h1 class="center">Calculate with Jake</h1>
 
         <div class="topCalc">
             <div class="calcField">
-                <input type="number" class="calcDisplay" >
+                <input type="number" class="calcDisplay" id="calc" value=0>
             </div>
         </div>
 
+        <script>
+            // use the variables below to run Math function
+            let val1 =undefined;
+            let val2 =undefined;
+            let op = undefined;
+
+        function inputNum(number) {
+            if(document.getElementById("calc").value==0){
+                document.getElementById("calc").value = number;
+            }else{
+            document.getElementById("calc").value = document.getElementById("calc").value + number;
+            }
+        }
+
+        function clearNum(){
+            document.getElementById("calc").value = 0;
+        }
+
+        function myOperator(myOp){
+            if(isNan(document.getElementById("calc").value)){
+                document.getElementById("calc").value = myOp;
+            } else{
+                val1 = document.getElementById("calc").value;
+                document.getElementById("calc").value = myOp;
+            }
+        }
+        </script>
+
+
         <div class="calculator buttons">
 
-            <button class="button command">C</button>
-            <button class="button command">AC</button>
-            <button class="button command">%</button>
-            <button class="button operator">&#247;</button>
+            <button class="button command" id="clear" onclick="clearNum()">C</button>
+            <button class="button command" id="allClear">AC</button>
+            <button class="button command" id="negative">-/+</button>
+            <button class="button operator" id="divide">&#247;</button>
 
-            <button class="button number">7</button>
-            <button class="button number">8</button>
-            <button class="button number">9</button>
-            <button class="button operator">&#215;</button>
+            <button class="button number" id="numb" onclick="inputNum(7)">7</button>
+            <button class="button number" id="numb" onclick="inputNum(8)">8</button>
+            <button class="button number" id="numb" onclick="inputNum(9)">9</button>
+            <button class="button operator" id="multiply" onclick="myOperator(*)">&#215;</button>
 
-            <button class="button number">4</button>
-            <button class="button number">5</button>
-            <button class="button number">6</button>
-            <button class="button operator">-</button>
+            <button class="button number" id="numb" onclick="inputNum(4)">4</button>
+            <button class="button number" id="numb" onclick="inputNum(5)">5</button>
+            <button class="button number" id="numb" onclick="inputNum(6)">6</button>
+            <button class="button operator" id="subtract">-</but
+                ton>
 
-            <button class="button number">1</button>
-            <button class="button number">2</button>
-            <button class="button number">3</button>
-            <button class="button operator">+</button>
+            <button class="button number" id="numb" onclick="inputNum(1)">1</button>
+            <button class="button number" id="numb" onclick="inputNum(2)">2</button>
+            <button class="button number" id="numb" onclick="inputNum(3)">3</button>
+            <button class="button operator" id="add">+</button>
 
-            <button class="button number zero">0</button>
-            <button class="button number">.</button>
-            <button class="button operator">=</button>
+            <button class="button number zero" id="numb" onclick="inputNum(0)">0</button>
+            <button class="button number" id="decimal">.</button>
+            <button class="button operator" id="equal">=</button>
 
         </div>
         <!--[if lt IE 7]>
