@@ -1,9 +1,9 @@
- version: 2
- jobs:
-   lint:
-     docker:
-       - image: node:10
-     steps:
-       - checkout
-       - run: npm install
-       - run: npm run lint
+version: 2
+jobs:
+  lint:
+    docker:
+      - image: node:10
+    steps:
+      - checkout
+      - run: npm install
+      - run: npm run lint
