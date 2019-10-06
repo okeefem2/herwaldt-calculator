@@ -3,3 +3,4 @@ function michaelsFun() {
 }
 
 console.log(michaelsFun());
+console.log('Success!');
