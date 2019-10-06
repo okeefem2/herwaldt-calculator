@@ -1,0 +1,26 @@
+{
+  "name": "herwaldt-calculator",
+  "version": "1.0.0",
+  "description": "Jakes Calculator project!",
+  "main": "test.js",
+  "directories": {
+    "doc": "docs"
+  },
+  "scripts": {
+    "lint": "eslint . --ext .js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/okeefem2/herwaldt-calculator.git"
+  },
+  "author": "Jake Herwaldt and Michael O'Keefe",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/okeefem2/herwaldt-calculator/issues"
+  },
+  "homepage": "https://github.com/okeefem2/herwaldt-calculator#readme",
+  "devDependencies": {
+    "eslint": "^6.5.1",
+    "eslint-config-google": "^0.14.0"
+  }
+}
