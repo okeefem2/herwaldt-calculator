@@ -7,8 +7,16 @@ jobs:
       - checkout
       - run: npm install
       - run: npm run lint
+  stylelint:
+    docker:
+      - image: node:10
+    steps:
+      - checkout
+      - run: npm install
+      - run: npm run stylelint
 workflows:
   version: 2
   linting:
     jobs:
       - eslint
+      - stylelint
