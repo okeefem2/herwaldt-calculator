@@ -45,6 +45,13 @@ jobs:
       - image: node:10
     steps:
       - checkout
+      - restore_cache:
+          key: v1-npm-deps-{{ checksum "package-lock.json" }}
+      - run: npm install
+      - save_cache:
+          key: v1-npm-deps-{{ checksum "package-lock.json" }}
+          paths:
+            - ./node_modules
       - run: npm run deploy:ci
 workflows:
   version: 2
@@ -58,6 +65,6 @@ workflows:
       - deploy:
           requires:
             - build
-          filters:
-            tags:
-              only: /^v.*/
+    filters:
+      tags:
+        only: /^v.*/
