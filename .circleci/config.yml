@@ -51,10 +51,11 @@ workflows:
       - eslint
       - stylelint
   build-and-deploy:
-    - build
-    - deploy:
-        requires:
-          - build
-        filters:
-          tags:
-            only: /^v.*/
+    jobs:
+      - build
+      - deploy:
+          requires:
+            - build
+          filters:
+            tags:
+              only: /^v.*/
