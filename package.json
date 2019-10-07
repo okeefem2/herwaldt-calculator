@@ -9,7 +9,7 @@
   "scripts": {
     "lint": "eslint . --ext .js",
     "stylelint": "./node_modules/stylelint/bin/stylelint.js \"**/*.css\"",
-    "build": "cp ./index.html dist && cp ./test.css dist && cp ./test.js dist",
+    "build": "mkdir -p dist && cp ./index.html dist/ && cp ./test.css dist/ && cp ./test.js dist/",
     "deploy": "./node_modules/.bin/firebase deploy --only hosting",
     "deploy:ci": "./node_modules/.bin/firebase deploy --token \"$FIREBASE_TOKEN\" --only hosting"
   },
