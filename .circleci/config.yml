@@ -28,16 +28,22 @@ jobs:
             - ./node_modules
       - run: npm run stylelint
   build:
-    - restore_cache:
-        key: v1-npm-deps-{{ checksum "package-lock.json" }}
-    - run: npm install
-    - save_cache:
-        key: v1-npm-deps-{{ checksum "package-lock.json" }}
-        paths:
-          - ./node_modules
-    - run: npm run build
+    docker:
+      - image: node:10
+    steps:
+      - restore_cache:
+          key: v1-npm-deps-{{ checksum "package-lock.json" }}
+      - run: npm install
+      - save_cache:
+          key: v1-npm-deps-{{ checksum "package-lock.json" }}
+          paths:
+            - ./node_modules
+      - run: npm run build
   deploy:
-    - run: npm run deploy:ci
+    docker:
+      - image: node:10
+    steps:
+      - run: npm run deploy:ci
 workflows:
   version: 2
   linting:
