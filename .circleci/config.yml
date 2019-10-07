@@ -7,12 +7,10 @@ jobs:
       - checkout
       # Download and cache dependencies
       - restore_cache:
-          keys:
-            - v1-npm-deps-{{ checksum "package.json" }}
-=      - run: npm install
+          key: v1-npm-deps-{{ checksum "package-lock.json" }}
+      - run: npm install
       - save_cache:
-          keys:
-            - v1-npm-deps-{{ checksum "package-lock.json" }}
+          key: v1-npm-deps-{{ checksum "package-lock.json" }}
           paths:
             - ./node_modules
       - run: npm run lint
@@ -22,25 +20,21 @@ jobs:
     steps:
       - checkout
       - restore_cache:
-          keys:
-            - v1-npm-deps-{{ checksum "package.json" }}
+          key: v1-npm-deps-{{ checksum "package-lock.json" }}
       - run: npm install
       - save_cache:
-        keys:
-          - v1-npm-deps-{{ checksum "package-lock.json" }}
-        paths:
-          - ./node_modules
+          key: v1-npm-deps-{{ checksum "package-lock.json" }}
+          paths:
+            - ./node_modules
       - run: npm run stylelint
   build:
     - restore_cache:
-      keys:
-        - v1-npm-deps-{{ checksum "package.json" }}
+        key: v1-npm-deps-{{ checksum "package-lock.json" }}
     - run: npm install
     - save_cache:
-      keys:
-        - v1-npm-deps-{{ checksum "package-lock.json" }}
-      paths:
-        - ./node_modules
+        key: v1-npm-deps-{{ checksum "package-lock.json" }}
+        paths:
+          - ./node_modules
     - run: npm run build
   deploy:
     - run: npm run deploy:ci
