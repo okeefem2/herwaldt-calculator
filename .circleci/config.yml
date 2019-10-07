@@ -61,10 +61,13 @@ workflows:
       - stylelint
   build-and-deploy:
     jobs:
-      - build
+      - build:
+        filters:
+            tags:
+              only: /^v.*/
       - deploy:
           requires:
             - build
-    filters:
-      tags:
-        only: /^v.*/
+          filters:
+            tags:
+              only: /^v.*/
