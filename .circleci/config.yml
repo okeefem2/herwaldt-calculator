@@ -31,6 +31,7 @@ jobs:
     docker:
       - image: node:10
     steps:
+      - checkout
       - restore_cache:
           key: v1-npm-deps-{{ checksum "package-lock.json" }}
       - run: npm install
@@ -43,6 +44,7 @@ jobs:
     docker:
       - image: node:10
     steps:
+      - checkout
       - run: npm run deploy:ci
 workflows:
   version: 2
