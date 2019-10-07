@@ -1,0 +1,57 @@
+version: 2
+jobs:
+  eslint:
+    docker:
+      - image: node:10
+    steps:
+      - checkout
+      # Download and cache dependencies
+      - restore_cache:
+          key: v1-npm-deps-{{ checksum "package.json" }}
+      - run: npm install
+      - save_cache:
+          key: v1-npm-deps-{{ checksum "package.json" }}
+          paths:
+            - ./node_modules
+      - run: npm run lint
+  stylelint:
+    docker:
+      - image: node:10
+    steps:
+      - checkout
+      - restore_cache:
+          key: v1-npm-deps-{{ checksum "package.json" }}
+      - run: npm install
+      - save_cache:
+          key: v1-npm-deps-{{ checksum "package.json" }}
+          paths:
+            - ./node_modules
+      - run: npm run stylelint
+  deploy:
+    docker:
+      - image: node:10
+    steps:
+      - checkout
+      - restore_cache:
+          key: v1-npm-deps-{{ checksum "package.json" }}
+      - run: npm install
+      - save_cache:
+          key: v1-npm-deps-{{ checksum "package.json" }}
+          paths:
+            - ./node_modules
+      - run: npm run build
+      - run: npm run deploy:ci
+workflows:
+  version: 2
+  linting:
+    jobs:
+      - eslint
+      - stylelint
+  build-and-deploy:
+    jobs:
+      - deploy:
+          filters:
+            tags:
+              only: /^v.*/
+            branches:
+              ignore: /.*/
