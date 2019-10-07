@@ -8,7 +8,10 @@
   },
   "scripts": {
     "lint": "eslint . --ext .js",
-    "stylelint": "node_modules/stylelint/bin/stylelint.js \"**/*.css\""
+    "stylelint": "./node_modules/stylelint/bin/stylelint.js \"**/*.css\"",
+    "build": "cp ./index.html dist && cp ./test.css dist && cp ./test.js dist",
+    "deploy": "./node_modules/.bin/firebase deploy --only hosting",
+    "deploy:ci": "./node_modules/.bin/firebase deploy --token \"$FIREBASE_TOKEN\" --only hosting"
   },
   "repository": {
     "type": "git",
@@ -23,6 +26,7 @@
   "devDependencies": {
     "eslint": "^6.5.1",
     "eslint-config-google": "^0.14.0",
+    "firebase-tools": "^7.4.0",
     "stylelint": "^11.0.0",
     "stylelint-config-recommended": "^3.0.0"
   },
