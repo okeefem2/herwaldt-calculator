@@ -29,13 +29,33 @@
 }
 
 .calcField {
-    width: 25%;
+    width: 84%;
     margin: 0 auto;
-    border-style: 1px solid;
 }
 
-.topCalc {
-    margin: 20px 0;
+.opField {
+    width: 15%;
+    margin: 0 auto;
+}
+
+.topCalc{
+    justify-content: center;
+    display: flex;
+}
+
+.output {
+    width: 25%;
+    display: flex;
+}
+
+#calc{
+    text-align: right;
+    font-size: 2em;
+}
+
+#op{
+    text-align: center;
+    font-size: 2em;
 }
 
 
@@ -54,8 +74,7 @@
     .calcField {
         width: 80%;
         margin: 0 auto;
-        border-style: solid;
-        border-width: 1px;
+        border-style: solid 1px;
     }
 
     .calculator .operator {
