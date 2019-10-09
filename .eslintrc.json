@@ -19,6 +19,11 @@
             "error",
             4
         ],
-        "require-jsdoc": 0
+        "require-jsdoc": 0,
+        "max-len": [
+            "error",
+            140
+        ],
+        "no-unused-vars": 0
     }
 }
