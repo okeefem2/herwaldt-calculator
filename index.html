@@ -2,27 +2,58 @@
 <!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
 <!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
 <!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
-<!--[if gt IE 8]><!-->
-<html class="no-js">
-<!--<![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+        <link rel="stylesheet" href="./style.css">
+        <title>Calculate with Jake</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="">
+        <script src="./main.js"></script>
+    </head>
+    <body>
+        <h1 class="center">Calculate with Jake</h1>
 
-<head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>Test</title>
-    <meta name="description" content="">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="test.css">
-</head>
+        <div class="topCalc">
+            <div class="calcField">
+                <input type="text" class="calcDisplay" id="calc" value=0>
+            </div>
+        </div>
 
-<body>
-    <!--[if lt IE 7]>
+        <div class="calculator buttons">
+
+            <button class="button operator" id="clear" onclick="clearNum()">C</button>
+            <button class="button operator" id="allClear" onclick="allClearNum()">AC</button>
+            <button class="button operator" id="negative" onclick="makeNeg()">-/+</button>
+            <button class="button operator" id="divide"  onclick="myOperator('&#247;')">&#247;</button>
+
+            <button class="button number" id="numb" onclick="inputNum(7)">7</button>
+            <button class="button number" id="numb" onclick="inputNum(8)">8</button>
+            <button class="button number" id="numb" onclick="inputNum(9)">9</button>
+            <button class="button operator" id="multiply" onclick="myOperator('*')">*</button>
+
+            <button class="button number" id="numb" onclick="inputNum(4)">4</button>
+            <button class="button number" id="numb" onclick="inputNum(5)">5</button>
+            <button class="button number" id="numb" onclick="inputNum(6)">6</button>
+            <button class="button operator" id="subtract" onclick="myOperator('-')">-</button>
+
+            <button class="button number" id="numb" onclick="inputNum(1)">1</button>
+            <button class="button number" id="numb" onclick="inputNum(2)">2</button>
+            <button class="button number" id="numb" onclick="inputNum(3)">3</button>
+            <button class="button operator" id="add" onclick="myOperator('+')">+</button>
+
+            <button class="button number zero" id="numb" onclick="inputNum(0)">0</button>
+            <button class="button number" id="decimal" onclick="decimal()">.</button>
+            <button class="button operator" id="equal" onclick="calculate()">=</button>
+
+        </div>
+        <!--[if lt IE 7]>
             <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="#">upgrade your browser</a> to improve your experience.</p>
         <![endif]-->
-
-    <p class="test">Michael Second Test</p>
-
-    <script src="test.js" async defer></script>
-</body>
-
+        
+        <script src="" async defer></script>
+    </body>
 </html>
