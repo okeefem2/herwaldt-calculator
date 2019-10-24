@@ -11,13 +11,24 @@
         <title>Calculate with Jake</title>
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link rel="stylesheet" href="">
+        <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
         <script src="./main.js"></script>
     </head>
     <body>
         <h1 class="center">Calculate with Jake</h1>
-
+        <div class="fullHistory">
+                <p> 
+                    <div class="trashButton">
+                        <i class="material-icons left small" onclick="trashHist()">delete</i> 
+                    </div> 
+                    <span id="fullHist" onClick="ans()" ></span>
+                </p>
+            </div>
+        <div class="history">
+            <p><span id="hist"></span></p>
+        </div>
         <div class="topCalc">
+            
             <div class="output">
                 <div class="opField">
                     <input type="text" class="opDisplay" id="op">
@@ -27,6 +38,7 @@
                 </div>
             </div>
         </div>
+        
 
         <div class="calculator buttons">
 
@@ -52,7 +64,7 @@
 
             <button class="button number zero" id="numb" onclick="inputNum(0)">0</button>
             <button class="button number" id="decimal" onclick="decimal()">.</button>
-            <button class="button operator" id="equal" onclick="calculate()">=</button>
+            <button class="button operator" id="equal" onclick="equals()">=</button>
 
         </div>
         <!--[if lt IE 7]>

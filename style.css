@@ -28,6 +28,17 @@
     cursor: pointer;
 }
 
+.fullHistory span:hover {
+    color: gray;
+    cursor: pointer;
+}
+
+.trashButton i:hover {
+    color: red;
+    opacity: .9;
+    cursor: pointer;
+}
+
 .calcField {
     width: 84%;
     margin: 0 auto;
@@ -46,6 +57,33 @@
 .output {
     width: 25%;
     display: flex;
+}
+
+.history {
+    width: 25%;
+    margin: 0 auto;
+    text-align: right;
+    font-size: 1em;
+    min-height: 25px;
+}
+
+.fullHistory {
+    width: 25%;
+    margin: 0 auto;
+    text-align: right;
+    font-size: 1.5em;
+    min-height: 60px;
+    border: solid 1px;
+    padding: 7px;
+}
+
+.fullHistory p {
+    margin: 5px;
+}
+
+.opEquals {
+    font-weight: bolder;
+    margin: 5px;
 }
 
 #calc{
