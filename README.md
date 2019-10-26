@@ -2,7 +2,13 @@
 
 ## Contribution Guidelines For Forked Repo
 
-When working off a forked version of the main repository, it is important to keep your forks master branch up to date with the original repository master branch. In order to sync the fork master branch to make sure you have the most up to date code, follow the guidelines here https://help.github.com/en/github/collaborating-with-issues-and-pull-requests/syncing-a-fork, make sure you do this whenever you create a new branch, and whenever you go to push your branch to the remote in order to ensure your code is up to date.
+When working off a forked version of the main repository, it is important to keep your forks master branch up to date with the original repository master branch.
+
+In order to sync the fork master branch to make sure you have the most up to date code, first configure your upstream remote repository for your fork https://help.github.com/en/github/collaborating-with-issues-and-pull-requests/configuring-a-remote-for-a-fork.
+
+`git remote add upstream https://github.com/okeefem2/herwaldt-calculator.git`
+
+Then follow the guidelines here https://help.github.com/en/github/collaborating-with-issues-and-pull-requests/syncing-a-fork, make sure you do this whenever you create a new branch, and whenever you go to push your branch to the remote in order to ensure your code is up to date.
 
 To make a change, create a new branch with the naming scheme of `{feature | fix | task}/{issue#s}_short-description` for example if you are adding a new piece of functionality for issues 1, 2 and 3 make a branch named `feature/1-2-3_Adding-multiply-divide-and-delete` Try as much as possible to limit one issue per pull request though as this will make testing and review easier.
 
