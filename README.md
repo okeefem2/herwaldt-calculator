@@ -22,3 +22,5 @@ An example git worklow would look something like this:
 * `git add .` - Stage all changes to folders/files in the current working directory
 * `git commit -m "A descriptive message about the changes you made"` - commit the staged changes to your checked out local fork branch
 * `git push origin head` - push your changes to your local branch to remote (GitHub) if the branch does not exist remotely it will be created for you
+
+To update your branch with master to avoid merge conflicts in the PR, once master is updated with the upstream repository then run `git merge master` to pull the code in master into your branch.
