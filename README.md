@@ -8,11 +8,11 @@ To make a change, create a new branch with the naming scheme of `{feature | fix 
 
 An example git worklow would look something like this:
 
-`git fetch upstream` - update the remote upstream repository (original repository)
-`git checkout master`- checkout your forks master branch locally
-`git merge upstream/master` - merge the upstream upstream version of master into your forks local master
-`git push origin head` - push the updated fork master branch to your fork remote repository (GitHub)
-`git checkout -b new-branch-name` - create a new branch off of your local fork master branch
-`git add .` - Stage all changes to folders/files in the current working directory
-`git commit -m "A descriptive message about the changes you made"` - commit the staged changes to your checked out local fork branch
-`git push origin head` - push your changes to your local branch to remote (GitHub) if the branch does not exist remotely it will be created for you
+* `git fetch upstream` - update the remote upstream repository (original repository)
+* `git checkout master`- checkout your forks master branch locally
+* `git merge upstream/master` - merge the upstream upstream version of master into your forks local master
+* `git push origin head` - push the updated fork master branch to your fork remote repository (GitHub)
+* `git checkout -b new-branch-name` - create a new branch off of your local fork master branch
+* `git add .` - Stage all changes to folders/files in the current working directory
+* `git commit -m "A descriptive message about the changes you made"` - commit the staged changes to your checked out local fork branch
+* `git push origin head` - push your changes to your local branch to remote (GitHub) if the branch does not exist remotely it will be created for you
