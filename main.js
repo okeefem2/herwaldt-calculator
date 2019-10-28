@@ -39,6 +39,9 @@ function inputNum(number) {
     }
 }
 
+function clearNum() {
+    document.getElementById('calc').value = 0;
+}
 
 function myOperator(myOp) {
     console.log(history);
@@ -101,10 +104,6 @@ function equals() {
     history = lastHist + ' = ' + prevAns;
     document.getElementById('fullHist').innerHTML = history;
     clearCalc();
-}
-
-function clearNum() {
-    document.getElementById('calc').value = 0;
 }
 
 function makeNeg() {
