@@ -24,3 +24,6 @@ An example git worklow would look something like this:
 * `git push origin head` - push your changes to your local branch to remote (GitHub) if the branch does not exist remotely it will be created for you
 
 To update your branch with master to avoid merge conflicts in the PR, once master is updated with the upstream repository then run `git merge master` to pull the code in master into your branch.
+
+## CI/CD
+Uses circleci, when a PR is created, two jobs should run, one for es lint one for stylelint.
