@@ -12,16 +12,12 @@ function inputNum(number) {
     const currentNumber = document.getElementById('calc').value;
     // console.log(val1);
     // If op is undefined then work on creating var1 //
-    if ( lastAnsw !== undefined ) {
-        if ( op !== '' ) {
-            lastAnsw = undefined;
-            document.getElementById('calc').value = number;
-            val2 = document.getElementById('calc').value;
-        } else {
-        // do nothing so that user does not override answer from calculation before choosing operator //
-        }
-    } else if ( op == '' ) {
-        if ( currentNumber == 0 ) {
+    if ( lastAnsw !== undefined && op !== '' ) {
+        lastAnsw = undefined;
+        document.getElementById('calc').value = number;
+        val2 = document.getElementById('calc').value;
+    } else if ( op === '' ) {
+        if ( currentNumber === 0 ) {
             document.getElementById('calc').value = number;
             val1 = number;
         } else {
@@ -29,7 +25,7 @@ function inputNum(number) {
             val1 = document.getElementById('calc').value;
         }
     } else {
-        if ( currentNumber == 0 ) {
+        if ( currentNumber === 0 ) {
             document.getElementById('calc').value = number;
             val2 = number;
         } else {
@@ -76,18 +72,18 @@ function calculate() {
     document.getElementById('hist').innerHTML = history;
     let answer;
     switch (op) {
-    case '+':
-        answer = Number(val1) + Number(val2);
-        break;
-    case '-':
-        answer = Number(val1) - Number(val2);
-        break;
-    case '*':
-        answer = Number(val1) * Number(val2);
-        break;
-    case '&#247;':
-        answer = Number(val1) / Number(val2);
-        break;
+        case '+':
+            answer = Number(val1) + Number(val2);
+            break;
+        case '-':
+            answer = Number(val1) - Number(val2);
+            break;
+        case '*':
+            answer = Number(val1) * Number(val2);
+            break;
+        case '&#247;': // divide symbol
+            answer = Number(val1) / Number(val2);
+            break;
     }
     document.getElementById('calc').value = answer;
     document.getElementById('op').value = '';
