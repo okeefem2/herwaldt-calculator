@@ -1,96 +1,99 @@
 // use the variables below to run Math function
-let val1 = '';
-let val2 = '';
-let op = '';
-let history = ' ';
-let lastAnsw;
-let lastHist;
-let prevAns;
+let prevValue;
+let prevOp;
+
+let numInputs = [];
+let opInputs = [];
 
 
 function inputNum(number) {
-    const currentNumber = document.getElementById('calc').value;
+    let currentNumber = document.getElementById('calc').value;
     // console.log(val1);
     // If op is undefined then work on creating var1 //
-    if ( lastAnsw !== undefined && op !== '' ) {
-        lastAnsw = undefined;
-        document.getElementById('calc').value = number;
-        val2 = document.getElementById('calc').value;
-    } else if ( op === '' ) {
-        if ( currentNumber === 0 ) {
-            document.getElementById('calc').value = number;
-            val1 = number;
-        } else {
-            document.getElementById('calc').value = currentNumber + number;
-            val1 = document.getElementById('calc').value;
-        }
+    if ( currentNumber === '0' ) {
+        currentNumber = number;
+        numInputs.push(currentNumber);
     } else {
-        if ( currentNumber === 0 ) {
-            document.getElementById('calc').value = number;
-            val2 = number;
-        } else {
-            document.getElementById('calc').value = val2 + number;
-            val2 = document.getElementById('calc').value;
+        currentNumber = currentNumber + number;
+        numInputs[numInputs.length - 1] = currentNumber;
+    }
+    document.getElementById('calc').value = currentNumber;
+    prevValue = currentNumber;
+    createHist();
+    clearOp();
+}
+
+function createHist() {
+    let hist = '';
+    for ( i = 0; i < numInputs.length; i++) {
+        hist += numInputs[i];
+        if ( opInputs[i] !== undefined ) {
+            hist += opInputs[i];
         }
     }
+    document.getElementById('hist').innerHTML = hist;
 }
 
 function clearNum() {
-    document.getElementById('calc').value = 0;
+    document.getElementById('calc').value = '0';
 }
 
-function myOperator(myOp) {
-    console.log(history);
-    if ( lastAnsw !== undefined ) {
-        val1 = lastAnsw;
-        lastAnsw = undefined;
-        op = myOp;
-        document.getElementById('op').value = myOp;
-        histroy = history + val1 + op;
-        document.getElementById('hist').innerHTML = history;
-    } else if ( op === '' ) {
-        op = myOp;
-        document.getElementById('op').value = myOp;
-        history = history + val1 + op;
-        document.getElementById('hist').innerHTML = history;
-    } else if ( val2 === '' ) {
-        op = myOp;
-        document.getElementById('op').value = myOp;
-        history = val1 + op;
-        document.getElementById('hist').innerHTML = history;
+function clearOp() {
+    document.getElementById('op').value = '';
+}
+
+function inputOp(op) {
+    let currentOp = document.getElementById('op').value;
+
+    if ( currentOp === '' ) {
+        opInputs.push(op);
     } else {
-        calculate();
-        document.getElementById('op').value = myOp;
-        op = myOp;
-        history = history + op;
-        document.getElementById('hist').innerHTML = history;
-    }
+        opInputs[opInputs.length - 1] = op;
+    } 
+    document.getElementById('op').value = op;
+    prevOp = op;
+    prevValue = '0';
+    clearNum();
+    createHist();
 }
 
 function calculate() {
-    history = history + val2;
-    document.getElementById('hist').innerHTML = history;
-    let answer;
+    const operators = ['*', '/', '+', '-'];
+    let opIndex = 0;
+    debugger;
+
+    while ( opInputs.length > 0 ) {
+        const op = operators[opIndex];
+        const index = opInputs.findIndex(o => o === op);
+        if ( index === -1 ) {
+            opIndex ++;
+        } else {
+            calc(index, op);
+        }
+    }
+    document.getElementById('fullHist').innerHTML = numInputs[0];
+}
+
+function calc(index, op) {
+    const val1 = numInputs[index];
+    const val2 = numInputs[index + 1];
+    let answer = 0;
     switch (op) {
+        case '*':
+            answer = Number(val1) * Number(val2);
+            break;
+        case '/': // divide symbol
+            answer = Number(val1) / Number(val2);
+            break;
         case '+':
             answer = Number(val1) + Number(val2);
             break;
         case '-':
             answer = Number(val1) - Number(val2);
             break;
-        case '*':
-            answer = Number(val1) * Number(val2);
-            break;
-        case '&#247;': // divide symbol
-            answer = Number(val1) / Number(val2);
-            break;
     }
-    document.getElementById('calc').value = answer;
-    document.getElementById('op').value = '';
-    lastAnsw = answer;
-    val1 = answer;
-    val2 = '';
-    op = '';
+    opInputs.splice(index,1);
+    numInputs.splice(index,2,answer);
 }
 
 function equals() {
@@ -103,41 +106,32 @@ function equals() {
 }
 
 function makeNeg() {
-    const num = document.getElementById('calc').value;
+    let currentNumber = document.getElementById('calc').value;
 
-    if ( num === 0 || isNaN( num )) {
+    if ( currentNumber === 0 || isNaN( currentNumber )) {
         // allows a leading 0 with decimal to happen
-        document.getElementById('calc').value = 0;
-    } else if ( val2 === '' ) {
-        document.getElementById('calc').value = Number( num ) * -1;
-        val1 = document.getElementById('calc').value;
-    } else {
-        document.getElementById('calc').value = Number( num ) * -1;
-        val2 = document.getElementById('calc').value;
-    }
+        return;
+    } 
+    currentNumber = Number( currentNumber ) * -1;
+    prevValue = currentNumber;
+    numInputs[numInputs.length - 1] = currentNumber;
+    document.getElementById('calc').value = currentNumber;
 }
 
-function allClearNum() {
+function allClearCalc() {
     // clears input to 0 and clears all variables
     clearCalc();
     trashHist();
 }
 
 function clearCalc() {
-    document.getElementById('calc').value = 0;
-    document.getElementById('op').value = '';
-    document.getElementById('hist').innerHTML = '';
-
-    val1 = '';
-    val2 = '';
-    op = '';
-    lastAnsw = undefined;
-    history = '';
+    clearNum();
+    clearOp();
 }
 
 function ans() {
     document.getElementById('calc').value = prevAns;
-    val1 = prevAns;
+    prevValue = prevAns;
     val2 = '';
     op = '';
     history = '';
@@ -149,5 +143,7 @@ function decimal() {
 }
 
 function trashHist() {
-    document.getElementById('fullHist').innerHTML = '';
+    numInputs = [];
+    opInputs = [];
+    createHist();
 }

@@ -42,29 +42,29 @@
 
         <div class="calculator buttons">
 
-            <button class="button operator" id="clear" onclick="clearNum()">C</button>
-            <button class="button operator" id="allClear" onclick="allClearNum()">AC</button>
+            <button class="button operator" id="clear" onclick="clearCalc()">C</button>
+            <button class="button operator" id="allClear" onclick="allClearCalc()">AC</button>
             <button class="button operator" id="negative" onclick="makeNeg()">-/+</button>
-            <button class="button operator" id="divide"  onclick="myOperator('&#247;')">&#247;</button>
+            <button class="button operator" id="divide"  onclick="inputOp('/')">&#247;</button>
 
             <button class="button number" id="numb" onclick="inputNum(7)">7</button>
             <button class="button number" id="numb" onclick="inputNum(8)">8</button>
             <button class="button number" id="numb" onclick="inputNum(9)">9</button>
-            <button class="button operator" id="multiply" onclick="myOperator('*')">*</button>
+            <button class="button operator" id="multiply" onclick="inputOp('*')">*</button>
 
             <button class="button number" id="numb" onclick="inputNum(4)">4</button>
             <button class="button number" id="numb" onclick="inputNum(5)">5</button>
             <button class="button number" id="numb" onclick="inputNum(6)">6</button>
-            <button class="button operator" id="subtract" onclick="myOperator('-')">-</button>
+            <button class="button operator" id="subtract" onclick="inputOp('-')">-</button>
 
             <button class="button number" id="numb" onclick="inputNum(1)">1</button>
             <button class="button number" id="numb" onclick="inputNum(2)">2</button>
             <button class="button number" id="numb" onclick="inputNum(3)">3</button>
-            <button class="button operator" id="add" onclick="myOperator('+')">+</button>
+            <button class="button operator" id="add" onclick="inputOp('+')">+</button>
 
             <button class="button number zero" id="numb" onclick="inputNum(0)">0</button>
             <button class="button number" id="decimal" onclick="decimal()">.</button>
-            <button class="button operator" id="equal" onclick="equals()">=</button>
+            <button class="button operator" id="equal" onclick="calculate()">=</button>
 
         </div>
         <!--[if lt IE 7]>
