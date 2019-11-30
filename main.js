@@ -4,7 +4,11 @@ let opInputs = [];
 //Define numbers and operators for calculation
 function inputNum(number) {
     let currentNumber = document.getElementById('calc').value;
-    if ( currentNumber === '0' ) {
+    //debugger;
+    if ( currentNumber.indexOf('.') !== -1 ) {
+        currentNumber = currentNumber + number;
+        numInputs[numInputs.length - 1] = currentNumber;
+    } else if ( currentNumber === '0' ) {
         currentNumber = number;
         numInputs.push(currentNumber);
     } else {
@@ -90,6 +94,7 @@ function calc(index, op) {
             answer = Number(val1) - Number(val2);
             break;
     }
+    answer = Math.round(answer * 10000000) / 10000000;
     opInputs.splice(index,1);
     numInputs.splice(index,2,answer);
 }
@@ -137,5 +142,17 @@ function oldAns() {
 }
 
 function decimal() {
-
+    let currentNumber = document.getElementById('calc').value;
+    if ( currentNumber === '0' ) {
+        currentNumber = '0.';
+        numInputs.push(currentNumber);
+    } else if ( currentNumber.indexOf('.') === -1 ) {
+        currentNumber = currentNumber + '.';
+        numInputs[numInputs.length - 1] = currentNumber;
+    }
+    document.getElementById('calc').value = currentNumber;
+    createHist();
+    clearOp();
 }
+
+//-?(\d+|\d+\.\d+|\.\d+)([eE][-+]?\d+)?
