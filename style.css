@@ -1,5 +1,8 @@
-.calculator {
+.width {
     width: 40%;
+}
+
+.calculator {
     height: 40%;
     margin: 0 auto;
     display: grid;
@@ -20,6 +23,11 @@
 
 .calculator .number {
     border-radius: 25px;
+}
+
+.trashbutton {
+    border: none;
+    background-color: none;
 }
 
 .button:hover {
@@ -55,12 +63,10 @@
 }
 
 .output {
-    width: 40%;
     display: flex;
 }
 
 .history {
-    width: 40%;
     margin: 0 auto;
     text-align: right;
     font-size: 1em;
@@ -68,7 +74,6 @@
 }
 
 .fullHistory {
-    width: 40%;
     margin: 0 auto;
     text-align: right;
     font-size: 1.5em;
@@ -102,20 +107,8 @@
         font-size: 3rem;
     }
 
-    .output {
+    .width {
         width: 80%;
-    }
-
-    .history {
-        width: 80%;
-    }
-
-    .fullHistory {
-        width: 80%;
-    }
-
-    .calculator {
-        width: 90%;
     }
 
     .calcField {

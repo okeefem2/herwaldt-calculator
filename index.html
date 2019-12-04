@@ -16,31 +16,32 @@
     </head>
     <body>
         <h1 class="center">Calculate with Jake</h1>
-        <div class="fullHistory">
+        <div class="fullHistory width">
                 <p> 
                     <div class="trashButton">
-                        <i class="material-icons left small" onclick="trashFullHist()">delete</i> 
+                        <button class="left trashbutton" onclick="trashFullHist()">
+                            <i class="material-icons center small">delete</i> 
+                        </button>
                     </div> 
                     <span id="fullHist" onClick="oldAns()" ></span>
                 </p>
             </div>
-        <div class="history">
+        <div class="history width">
             <p><span id="hist"></span></p>
         </div>
         <div class="topCalc">
             
-            <div class="output">
+            <div class="output width">
                 <div class="opField">
-                    <input type="text" class="opDisplay" id="op">
+                    <input type="text" class="opDisplay" id="op" readonly>
                 </div>
-                <div class="calcField">
-                    <input type="text" class="calcDisplay" id="calc" value=0>
+                <div class="calcField width">
+                    <input type="text" class="calcDisplay" id="calc" value=0 readonly>
                 </div>
             </div>
         </div>
         
-
-        <div class="calculator buttons">
+        <div class="calculator buttons width">
 
             <button class="button operator" id="clear" onclick="clearCalc()">C</button>
             <button class="button operator" id="allClear" onclick="allClearCalc()">AC</button>
