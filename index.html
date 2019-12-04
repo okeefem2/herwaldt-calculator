@@ -11,39 +11,57 @@
         <title>Calculate with Jake</title>
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link rel="stylesheet" href="">
+        <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
         <script src="./main.js"></script>
     </head>
     <body>
         <h1 class="center">Calculate with Jake</h1>
-
+        <div class="fullHistory width">
+                <p> 
+                    <div class="trashButton">
+                        <button class="left trashbutton" onclick="trashFullHist()">
+                            <i class="material-icons center small">delete</i> 
+                        </button>
+                    </div> 
+                    <span id="fullHist" onClick="oldAns()" ></span>
+                </p>
+            </div>
+        <div class="history width">
+            <p><span id="hist"></span></p>
+        </div>
         <div class="topCalc">
-            <div class="calcField">
-                <input type="text" class="calcDisplay" id="calc" value=0>
+            
+            <div class="output width">
+                <div class="opField">
+                    <input type="text" class="opDisplay" id="op" readonly>
+                </div>
+                <div class="calcField width">
+                    <input type="text" class="calcDisplay" id="calc" value=0 readonly>
+                </div>
             </div>
         </div>
+        
+        <div class="calculator buttons width">
 
-        <div class="calculator buttons">
-
-            <button class="button operator" id="clear" onclick="clearNum()">C</button>
-            <button class="button operator" id="allClear" onclick="allClearNum()">AC</button>
+            <button class="button operator" id="clear" onclick="clearCalc()">C</button>
+            <button class="button operator" id="allClear" onclick="allClearCalc()">AC</button>
             <button class="button operator" id="negative" onclick="makeNeg()">-/+</button>
-            <button class="button operator" id="divide"  onclick="myOperator('&#247;')">&#247;</button>
+            <button class="button operator" id="divide"  onclick="inputOp('/')">&#247;</button>
 
             <button class="button number" id="numb" onclick="inputNum(7)">7</button>
             <button class="button number" id="numb" onclick="inputNum(8)">8</button>
             <button class="button number" id="numb" onclick="inputNum(9)">9</button>
-            <button class="button operator" id="multiply" onclick="myOperator('*')">*</button>
+            <button class="button operator" id="multiply" onclick="inputOp('*')">*</button>
 
             <button class="button number" id="numb" onclick="inputNum(4)">4</button>
             <button class="button number" id="numb" onclick="inputNum(5)">5</button>
             <button class="button number" id="numb" onclick="inputNum(6)">6</button>
-            <button class="button operator" id="subtract" onclick="myOperator('-')">-</button>
+            <button class="button operator" id="subtract" onclick="inputOp('-')">-</button>
 
             <button class="button number" id="numb" onclick="inputNum(1)">1</button>
             <button class="button number" id="numb" onclick="inputNum(2)">2</button>
             <button class="button number" id="numb" onclick="inputNum(3)">3</button>
-            <button class="button operator" id="add" onclick="myOperator('+')">+</button>
+            <button class="button operator" id="add" onclick="inputOp('+')">+</button>
 
             <button class="button number zero" id="numb" onclick="inputNum(0)">0</button>
             <button class="button number" id="decimal" onclick="decimal()">.</button>
